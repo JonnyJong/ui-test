@@ -1,0 +1,56 @@
+doctype html
+html(lang="zh-CN")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title UI Loader
+    link(rel="stylesheet", href="style.css")
+  body.rainbow-sync
+    .flex-box
+      .ui-loader.win10
+        - for(var i = 0; i < 8; i++)
+          .ui-load-object
+      .ui-loader.line
+        .ui-load-object
+      .ui-loader.dot
+        - for(var i = 0; i < 3; i++)
+          .ui-load-object
+      .ui-loader.funnel
+        .ui-load-object
+        .ui-load-object
+      .ui-loader.ui-loader-progress-line
+      .ui-loader.ui-loader-progress-dot
+        - for(var i = 0; i < 5; i++)
+          .ui-load-object
+    .controller
+      .input
+        label(for="main") 主色
+        input#main(type="color", name="main" value="#80fff2")
+      .input
+        label(for="bg") 背景色
+        input#bg(type="color", name="bg" value="#009688")
+      .input
+        label(for="size") 大小
+        input#size(type="number", name="size" value="60" min="1")
+      .input
+        label(for="rainbow") 彩虹色
+        input#rainbow(type="checkbox", name="rainbow")
+      .input
+        label(for="rainbowBg") 彩虹背景色
+        input#rainbowBg(type="checkbox", name="rainbowBg")
+      .input
+        label(for="rainbowSync") 同步彩虹
+        input#rainbowSync(type="checkbox", name="rainbowSync" checked)
+      .flex
+      a.author(href="https://jonnys.top", target="_blank", rel="noopener noreferrer")
+        img.avatar(src="https://jonnys.top/img/avatar.svg", alt="@Jonny")
+        ="By Jonny"
+      //- .flex
+      //- .input
+      //-   label(for="type") 类型
+      //-   select#type(name="type")
+      //-     option(value="win10") Windows 10
+      //-     option(value="line") Line
+      //-     option(value="More") More
+    script(src="javascript.js") 

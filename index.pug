@@ -1,0 +1,19 @@
+doctype html
+html(lang="zh-CN")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Test | Jonny's Blog
+    link(rel="stylesheet", href="style.css")
+  body
+    h1 网页组件测试
+    .modules
+      a(href="/ui-spotlight", target="_blank", rel="noopener noreferrer") 聚光灯
+        .code ui-spotlight
+      a(href="/ui-loader", target="_blank", rel="noopener noreferrer") 加载指示器
+        .code ui-loader
+    footer
+      a.item.author(href="https://jonnys.top", target="_blank", rel="noopener noreferrer")
+        img.avatar(src="https://jonnys.top/img/avatar.svg", alt="@Jonny")
+        ="By Jonny"

@@ -1,0 +1,160 @@
+body
+  box-sizing border-box
+  user-select none
+img
+  max-width 100%
+  display block
+*
+  box-sizing border-box
+a
+  color #000
+
+.btn
+  display inline-block
+  padding 8px 16px
+  background-color #212121
+  color #fff
+  border-radius 8px
+  border 4px solid #fff0
+  transition .1s
+  cursor pointer
+  user-select none
+  &:hover
+    border 4px solid #fff8
+  &.btn-blue
+    background-color #2196f3
+  &.btn-red
+    background-color #f44336
+  &.test
+    position absolute
+    z-index 100
+    background-color #fff4
+    top 100px
+    left 100px
+  &:active
+    transform scale(.95)
+.ui-spotlight.test-input
+  position absolute
+  top 50vh
+  left 100px
+  border-radius 6px
+input
+  outline 0
+  padding 8px 16px
+  border-radius 6px
+  background #0000
+  color #fff
+  border 4px solid #fff0
+  transition .1s
+  &::placeholder
+    color #fff8
+  &:hover
+  &:focus
+    border 4px solid #fff8
+
+footer
+  width 100vw
+  padding 20px
+  .author
+    display inline-flex
+    align-items center
+    gap 8px
+    text-decoration none
+    padding 8px
+    border-radius 6px
+    transition .1s box-shadow, .1s transform
+    background #fff
+    z-index 1
+    &:hover
+      box-shadow 0 2px 4px #0008
+    &:active
+      transform scale(.9)
+  .avatar
+    height 48px
+    width 48px
+    border-radius 100%
+
+@keyframes ui-spotlight-onclick
+  0%
+    transform translate(-50%, -50%) scale(.5)
+    background radial-gradient(closest-side, #fff1, #fff2, #fff0)
+    opacity 1
+  100%
+    transform translate(-50%, -50%) scale(10)
+    background radial-gradient(closest-side, #fff1, #fff2, #fff0)
+    opacity: 0
+@keyframes ui-spotlight-reverse-onclick
+  0%
+    transform translate(-50%, -50%) scale(.5)
+    background radial-gradient(closest-side, #0001, #0002, #0000)
+    opacity 1
+  100%
+    transform translate(-50%, -50%) scale(10)
+    background radial-gradient(closest-side, #0001, #0002, #0000)
+    opacity: 0
+@keyframes ui-spotlight-restore
+  0%
+    opacity 0
+  100%
+    opacity 1
+@keyframes ui-spotlight-fade
+  0%
+    opacity 1
+    background radial-gradient(closest-side, #fff2, #fff0)
+  100%
+    opacity 0
+    background radial-gradient(closest-side, #fff2, #fff0)
+@keyframes ui-spotlight-reverse-fade
+  0%
+    opacity 1
+    background radial-gradient(closest-side, #0002, #0000)
+  100%
+    opacity 0
+    background radial-gradient(closest-side, #0002, #0000)
+
+.ui-spotlight
+  position relative
+  overflow hidden
+  --x 200%
+  --y 200%
+  &::after
+    content ''
+    position absolute
+    width 100px
+    height 100px
+    display block
+    left var(--x)
+    top var(--y)
+    transform: translate(-50%, -50%)
+    pointer-events none
+    animation ui-spotlight-fade .2s
+  &:hover::after
+    background radial-gradient(closest-side, #fff2, #fff0)
+    animation ui-spotlight-restore .2s
+  &.ui-spotlight-reverse
+  &.ui-spotlight-withBg
+    &:after
+      animation ui-spotlight-reverse-fade .2s
+    &:hover::after
+      background radial-gradient(closest-side, #0002, #0000)
+  &.ui-spotlight-onclick
+    &:after
+      left var(--xC)
+      top var(--yC)
+      animation: ui-spotlight-onclick 1s
+    &.ui-spotlight-reverse
+    &.ui-spotlight-withBg
+      &:after
+        animation: ui-spotlight-reverse-onclick 1s
+  &.ui-spotlight-medium::after
+    width: 300px
+    height: 300px
+  &.ui-spotlight-big::after
+    width: 500px
+    height: 500px
+  &.ui-spotlight-large::after
+    width: 1000px
+    height: 1000px
+  &.ui-spotlight-full::after
+    width: 200vmax
+    height: 200vmax

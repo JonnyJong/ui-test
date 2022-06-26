@@ -1,0 +1,100 @@
+body{
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+img{
+  max-width: 100%;
+  display: block;
+}
+.btn{
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #212121;
+  color: #fff;
+  border-radius: 8px;
+  border: 4px solid #fff0;
+  transition: .1s;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.btn:hover{
+  border: 4px solid #fff8;
+}
+.btn.btn-blue{
+  background-color: #2196f3;
+}
+.btn.btn-red{
+  background-color: #f44336;
+}
+.btn:active{
+  transform: scale(.95);
+}
+.ui-spotlight{
+  position: relative;
+  overflow: hidden;
+  --x: 0px;
+  --y: 0px;
+}
+.ui-spotlight::after{
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  display: block;
+  background: radial-gradient(closest-side, #fff0, #fff0);
+  left: var(--x);
+  top: var(--y);
+  transform: translate(-50%, -50%);
+  z-index: 0;
+}
+.ui-spotlight:hover::after{
+  background: radial-gradient(closest-side, #fff2, #fff0);
+  /* 调试对齐用 */
+  /* background: RED;
+  height: 3px !important;
+  width: 3px !important; */
+}
+@keyframes ui-spotlight-onclick {
+  0%{
+    transform: translate(-50%, -50%) scale(.5);
+    background: radial-gradient(closest-side, #fff1, #fff2, #fff0);
+    opacity: 1;
+  }
+  100%{
+    transform: translate(-50%, -50%) scale(10);
+    background: radial-gradient(closest-side, #fff1, #fff2, #fff0);
+    opacity: 0;
+  }
+}
+.ui-spotlight.ui-spotlight-onclick::after{
+  left: var(--xC);
+  top: var(--yC);
+  animation: ui-spotlight-onclick 1s;
+}
+@keyframes ui-spotlight-back {
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+.ui-spotlight.ui-spotlight-back::after{
+  animation: ui-spotlight-back .2s;
+}
+.ui-spotlight.ui-spotlight-large::after{
+  width: 1000px;
+  height: 1000px;
+}
+
+.btn.btn-blue.test{
+  position: absolute;
+  z-index: 100;
+  background-color: #fff4;
+  top: 100px;
+  left: 100px;
+}
