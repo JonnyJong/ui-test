@@ -55,6 +55,7 @@ body>* {
   overflow: auto hidden;
   max-height: 111px;
   white-space: nowrap;
+  flex: 0 0 auto;
 }
 .controller .input {
   display: flex;
@@ -224,10 +225,31 @@ body>* {
   clip-path: polygon(10% 0, 90% 0, 55% 50%, 90% 100%, 10% 100%, 45% 50%, 10% 0, 14% 2%, 48% 50%, 14% 98%, 86% 98%, 52% 50%, 86% 2%, 14% 2%);
   background: var(--main);
 }
+.ui-loader.line-round {
+  position: relative;
+  height: var(--ui-loader-size);
+  width: var(--ui-loader-size);
+}
+.ui-loader.line-round svg {
+  width: 100%;
+  height: 100%;
+  animation: ui-loader-round-line-rotate 1s linear infinite;
+}
+.ui-loader.line-round path {
+  stroke: var(--main);
+  stroke-linecap: round;
+  stroke-width: 10%;
+  stroke-dashoffset: 0;
+  stroke-dasharray: 150;
+  animation: ui-loader-round-line-offset 2.85s linear infinite;
+}
 .ui-loader.ui-loader-progress-line {
   height: 6px;
+  height: calc(var(--ui-loader-size) * 0.1);
   width: 100%;
   position: relative;
+  overflow: hidden;
+  border-radius: calc(var(--ui-loader-size) * 0.1);
 }
 .ui-loader.ui-loader-progress-line:before,
 .ui-loader.ui-loader-progress-line:after {
@@ -238,6 +260,7 @@ body>* {
   display: block;
   background: var(--main);
   border-radius: 6px;
+  border-radius: calc(var(--ui-loader-size) * 0.1);
 }
 .ui-loader.ui-loader-progress-line:before {
   opacity: 0.5;
@@ -255,6 +278,8 @@ body>* {
   position: absolute;
   height: 6px;
   width: 6px;
+  height: calc(var(--ui-loader-size) * 0.1);
+  width: calc(var(--ui-loader-size) * 0.1);
   border-radius: 100%;
   background: var(--main);
 }
@@ -1147,6 +1172,70 @@ body>* {
   }
   100% {
     transform: rotate(180deg);
+  }
+}
+@-moz-keyframes ui-loader-round-line-offset {
+  0%, 100% {
+    stroke-dashoffset: 130;
+  }
+  50% {
+    stroke-dashoffset: 0;
+  }
+}
+@-webkit-keyframes ui-loader-round-line-offset {
+  0%, 100% {
+    stroke-dashoffset: 130;
+  }
+  50% {
+    stroke-dashoffset: 0;
+  }
+}
+@-o-keyframes ui-loader-round-line-offset {
+  0%, 100% {
+    stroke-dashoffset: 130;
+  }
+  50% {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes ui-loader-round-line-offset {
+  0%, 100% {
+    stroke-dashoffset: 130;
+  }
+  50% {
+    stroke-dashoffset: 0;
+  }
+}
+@-moz-keyframes ui-loader-round-line-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes ui-loader-round-line-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@-o-keyframes ui-loader-round-line-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes ui-loader-round-line-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
 @-moz-keyframes ui-loader-progress-line {
